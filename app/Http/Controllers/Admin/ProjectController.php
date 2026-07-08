@@ -28,7 +28,7 @@ class ProjectController extends Controller
     {
         Project::create($this->validated($request));
 
-        return redirect()->route('admin.projects.index')->with('status', 'Proyek berhasil dibuat.');
+        return redirect()->route('admin.projects.index')->with('status', 'Project created successfully.');
     }
 
     public function edit(Project $project): View
@@ -40,7 +40,7 @@ class ProjectController extends Controller
     {
         $project->update($this->validated($request, $project));
 
-        return redirect()->route('admin.projects.index')->with('status', 'Proyek berhasil diperbarui.');
+        return redirect()->route('admin.projects.index')->with('status', 'Project updated successfully.');
     }
 
     public function destroy(Project $project): RedirectResponse
@@ -48,7 +48,7 @@ class ProjectController extends Controller
         $this->deleteImage($project->thumbnail);
         $project->delete();
 
-        return redirect()->route('admin.projects.index')->with('status', 'Proyek berhasil dihapus.');
+        return redirect()->route('admin.projects.index')->with('status', 'Project deleted successfully.');
     }
 
     private function validated(Request $request, ?Project $project = null): array

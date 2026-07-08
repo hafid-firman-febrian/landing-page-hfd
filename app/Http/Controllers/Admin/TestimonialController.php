@@ -28,7 +28,7 @@ class TestimonialController extends Controller
     {
         Testimonial::create($this->validated($request));
 
-        return redirect()->route('admin.testimonials.index')->with('status', 'Testimoni berhasil dibuat.');
+        return redirect()->route('admin.testimonials.index')->with('status', 'Testimonial created successfully.');
     }
 
     public function edit(Testimonial $testimonial): View
@@ -40,7 +40,7 @@ class TestimonialController extends Controller
     {
         $testimonial->update($this->validated($request, $testimonial));
 
-        return redirect()->route('admin.testimonials.index')->with('status', 'Testimoni berhasil diperbarui.');
+        return redirect()->route('admin.testimonials.index')->with('status', 'Testimonial updated successfully.');
     }
 
     public function destroy(Testimonial $testimonial): RedirectResponse
@@ -48,7 +48,7 @@ class TestimonialController extends Controller
         $this->deleteImage($testimonial->avatar);
         $testimonial->delete();
 
-        return redirect()->route('admin.testimonials.index')->with('status', 'Testimoni berhasil dihapus.');
+        return redirect()->route('admin.testimonials.index')->with('status', 'Testimonial deleted successfully.');
     }
 
     private function validated(Request $request, ?Testimonial $testimonial = null): array

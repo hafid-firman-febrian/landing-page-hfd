@@ -28,7 +28,7 @@ class ServiceController extends Controller
         $data = $this->validated($request);
         Service::create($data);
 
-        return redirect()->route('admin.services.index')->with('status', 'Layanan berhasil dibuat.');
+        return redirect()->route('admin.services.index')->with('status', 'Service created successfully.');
     }
 
     public function edit(Service $service): View
@@ -40,14 +40,14 @@ class ServiceController extends Controller
     {
         $service->update($this->validated($request, $service));
 
-        return redirect()->route('admin.services.index')->with('status', 'Layanan berhasil diperbarui.');
+        return redirect()->route('admin.services.index')->with('status', 'Service updated successfully.');
     }
 
     public function destroy(Service $service): RedirectResponse
     {
         $service->delete();
 
-        return redirect()->route('admin.services.index')->with('status', 'Layanan berhasil dihapus.');
+        return redirect()->route('admin.services.index')->with('status', 'Service deleted successfully.');
     }
 
     private function validated(Request $request, ?Service $service = null): array
