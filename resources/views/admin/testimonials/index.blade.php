@@ -1,42 +1,42 @@
-<x-layouts.admin title="Testimoni">
+<x-layouts.admin title="Testimonials">
     <div class="flex items-center justify-between mb-6">
-        <p class="text-sm text-slate-400">{{ $testimonials->count() }} testimoni</p>
-        <a href="{{ route('admin.testimonials.create') }}" class="rounded-full bg-brand-600 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-700 transition">+ Tambah</a>
+        <p class="text-sm text-ink-600">{{ $testimonials->count() }} testimonials</p>
+        <a href="{{ route('admin.testimonials.create') }}" class="rounded-full bg-accent px-4 py-2 text-sm font-semibold text-white hover:bg-accent-600 transition">+ Add</a>
     </div>
 
-    <div class="overflow-x-auto rounded-2xl border border-white/10">
+    <div class="overflow-x-auto rounded-2xl border border-primary/10 bg-surface-0 shadow-sm">
         <table class="w-full text-sm">
-            <thead class="bg-ink-800 text-left text-slate-400">
+            <thead class="bg-primary text-left text-white">
                 <tr>
                     <th class="px-4 py-3 font-medium">#</th>
-                    <th class="px-4 py-3 font-medium">Nama</th>
+                    <th class="px-4 py-3 font-medium">Name</th>
                     <th class="px-4 py-3 font-medium">Rating</th>
-                    <th class="px-4 py-3 font-medium">Kutipan</th>
+                    <th class="px-4 py-3 font-medium">Quote</th>
                     <th class="px-4 py-3 font-medium">Status</th>
-                    <th class="px-4 py-3 font-medium text-right">Aksi</th>
+                    <th class="px-4 py-3 font-medium text-right">Actions</th>
                 </tr>
             </thead>
-            <tbody class="divide-y divide-white/5">
+            <tbody class="divide-y divide-primary/10">
                 @forelse($testimonials as $testimonial)
-                    <tr class="hover:bg-white/5">
-                        <td class="px-4 py-3 text-slate-500">{{ $testimonial->sort_order }}</td>
-                        <td class="px-4 py-3 text-white">
+                    <tr class="hover:bg-secondary-50">
+                        <td class="px-4 py-3 text-ink-500">{{ $testimonial->sort_order }}</td>
+                        <td class="px-4 py-3 text-primary">
                             {{ $testimonial->name }}
-                            @if($testimonial->role)<div class="text-xs text-slate-500">{{ $testimonial->role }}</div>@endif
+                            @if($testimonial->role)<div class="text-xs text-ink-500">{{ $testimonial->role }}</div>@endif
                         </td>
-                        <td class="px-4 py-3 text-amber-400">{{ str_repeat('★', $testimonial->rating) }}</td>
-                        <td class="px-4 py-3 text-slate-400 max-w-xs truncate">{{ $testimonial->quote }}</td>
+                        <td class="px-4 py-3 text-accent">{{ str_repeat('★', $testimonial->rating) }}</td>
+                        <td class="px-4 py-3 text-ink-600 max-w-xs truncate">{{ $testimonial->quote }}</td>
                         <td class="px-4 py-3"><x-admin.status-badge :active="$testimonial->is_active" /></td>
                         <td class="px-4 py-3 text-right whitespace-nowrap">
-                            <a href="{{ route('admin.testimonials.edit', $testimonial) }}" class="text-brand-400 hover:text-brand-300">Edit</a>
-                            <form method="POST" action="{{ route('admin.testimonials.destroy', $testimonial) }}" class="inline" onsubmit="return confirm('Hapus testimoni ini?')">
+                            <a href="{{ route('admin.testimonials.edit', $testimonial) }}" class="text-accent hover:text-accent-700">Edit</a>
+                            <form method="POST" action="{{ route('admin.testimonials.destroy', $testimonial) }}" class="inline" onsubmit="return confirm('Delete this testimonial?')">
                                 @csrf @method('DELETE')
-                                <button class="ml-3 text-rose-400 hover:text-rose-300">Hapus</button>
+                                <button class="ml-3 text-rose-400 hover:text-rose-300">Delete</button>
                             </form>
                         </td>
                     </tr>
                 @empty
-                    <tr><td colspan="6" class="px-4 py-8 text-center text-slate-500">Belum ada testimoni.</td></tr>
+                    <tr><td colspan="6" class="px-4 py-8 text-center text-ink-500">No testimonials yet.</td></tr>
                 @endforelse
             </tbody>
         </table>

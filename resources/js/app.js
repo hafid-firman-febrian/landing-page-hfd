@@ -1,3 +1,8 @@
+import Alpine from 'alpinejs';
+
+window.Alpine = Alpine;
+Alpine.start();
+
 // Toggle menu mobile
 const menuToggle = document.querySelector('[data-menu-toggle]');
 const menu = document.querySelector('[data-menu]');

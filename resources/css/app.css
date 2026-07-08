@@ -1,21 +1,102 @@
-@import 'tailwindcss';
+/* Font: Source Code Pro */
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap");
+
+@import "tailwindcss";
+
+@plugin '@tailwindcss/forms';
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
+@source '../../resources/views/**/*.blade.php';
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    /* Font */
+    --font-sans:
+        "Source Code Pro", ui-monospace, "SFMono-Regular", Menlo, Consolas,
+        "Liberation Mono", monospace;
+    --font-mono:
+        "Source Code Pro", ui-monospace, "SFMono-Regular", Menlo, Consolas,
+        "Liberation Mono", monospace;
+    --font-body:
+        "Source Code Pro", ui-monospace, "SFMono-Regular", Menlo, Consolas,
+        "Liberation Mono", monospace;
 
-    /* Palet brand */
-    --color-brand-50: #eef2ff;
-    --color-brand-400: #818cf8;
-    --color-brand-500: #6366f1;
-    --color-brand-600: #4f46e5;
-    --color-brand-700: #4338ca;
+    /*
+      Nord Color Palette:
+      Text       = #2F343F
+      Background = #FFFFFF
+      Primary    = #2E3440
+      Secondary  = #A9BD91
+      Accent     = #B3666C
+    */
 
-    /* Warna dasar gelap */
-    --color-ink-900: #0b0d12;
-    --color-ink-800: #12151c;
-    --color-ink-700: #1b1f2a;
+    /* Core colors */
+    --color-text: #2e3440;
+    --color-background: #ffffff;
+    --color-primary: #2e3440;
+    --color-secondary: #a9bd91;
+    --color-accent: #b3666c;
+
+    /* Text / Ink */
+    --color-ink-900: #2f343f;
+    --color-ink-800: #3c424f;
+    --color-ink-700: #4b5260;
+    --color-ink-600: #5e6675;
+    --color-ink-500: #747d8c;
+    --color-ink-400: #9aa2ad;
+    --color-ink-300: #bdc3ca;
+    --color-ink-200: #d9dde1;
+    --color-ink-100: #eceef0;
+    --color-ink-50: #f6f7f8;
+
+    /* Background / Surface */
+    --color-surface-0: #ffffff;
+    --color-surface-50: #f7f3ea;
+    --color-surface-100: #eee8dc;
+    --color-surface-200: #e6dccb;
+    --color-surface-300: #d8cdbb;
+
+    /* Primary - soft nord blue */
+    --color-primary-50: #f1f8fa;
+    --color-primary-100: #deeff4;
+    --color-primary-200: #c4e1ea;
+    --color-primary-300: #a9d0dc;
+    --color-primary-400: #94bfce;
+    --color-primary-500: #75a8b9;
+    --color-primary-600: #5d8fa0;
+    --color-primary-700: #4d7583;
+    --color-primary-800: #435f69;
+    --color-primary-900: #3a5058;
+
+    /* Secondary - muted green */
+    --color-secondary-50: #f5f8f1;
+    --color-secondary-100: #e8efdd;
+    --color-secondary-200: #d3e0c1;
+    --color-secondary-300: #bdcfa6;
+    --color-secondary-400: #a9bd91;
+    --color-secondary-500: #93a979;
+    --color-secondary-600: #788d61;
+    --color-secondary-700: #60704f;
+    --color-secondary-800: #515e44;
+    --color-secondary-900: #444f3b;
+
+    /* Accent - muted rose */
+    --color-accent-50: #faf2f3;
+    --color-accent-100: #f3dddd;
+    --color-accent-200: #e8c0c3;
+    --color-accent-300: #d89aa0;
+    --color-accent-400: #c77981;
+    --color-accent-500: #b3666c;
+    --color-accent-600: #9c4f56;
+    --color-accent-700: #824248;
+    --color-accent-800: #6d393e;
+    --color-accent-900: #5d3337;
+
+    /* Brand aliases for compatibility with the previous naming scheme */
+    --color-brand-50: #f1f8fa;
+    --color-brand-100: #deeff4;
+    --color-brand-400: #94bfce;
+    --color-brand-500: #75a8b9;
+    --color-brand-600: #5d8fa0;
+    --color-brand-700: #4d7583;
 }

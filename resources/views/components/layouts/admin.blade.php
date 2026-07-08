@@ -9,46 +9,46 @@
     @fonts
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-ink-900 text-slate-300 antialiased font-sans min-h-screen flex">
+<body class="bg-background text-text antialiased font-sans min-h-screen flex">
     @php
         $nav = [
             ['route' => 'admin.dashboard', 'label' => 'Dashboard', 'icon' => '🏠'],
-            ['route' => 'admin.services.index', 'label' => 'Layanan', 'icon' => '🧩'],
-            ['route' => 'admin.projects.index', 'label' => 'Portofolio', 'icon' => '📁'],
-            ['route' => 'admin.testimonials.index', 'label' => 'Testimoni', 'icon' => '💬'],
+            ['route' => 'admin.services.index', 'label' => 'Services', 'icon' => '🧩'],
+            ['route' => 'admin.projects.index', 'label' => 'Portfolio', 'icon' => '📁'],
+            ['route' => 'admin.testimonials.index', 'label' => 'Testimonials', 'icon' => '💬'],
             ['route' => 'admin.settings.edit', 'label' => 'Hero & CTA', 'icon' => '⚙️'],
         ];
     @endphp
 
-    <aside class="hidden md:flex w-64 shrink-0 flex-col border-r border-white/5 bg-ink-800 p-4">
-        <a href="{{ route('admin.dashboard') }}" class="font-bold text-white text-lg px-2 py-3">{{ config('app.name') }}</a>
+    <aside class="hidden md:flex w-64 shrink-0 flex-col border-r border-primary/10 bg-surface-0 p-4">
+        <a href="{{ route('admin.dashboard') }}" class="font-bold text-primary text-lg px-2 py-3">{{ config('app.name') }}</a>
         <nav class="mt-4 space-y-1 text-sm flex-1">
             @foreach($nav as $item)
                 @php $active = request()->routeIs(str_replace('.index', '.*', $item['route'])) || request()->routeIs($item['route']); @endphp
                 <a href="{{ route($item['route']) }}"
-                   class="flex items-center gap-3 rounded-lg px-3 py-2 transition {{ $active ? 'bg-brand-600 text-white' : 'hover:bg-white/5' }}">
+                   class="flex items-center gap-3 rounded-lg px-3 py-2 transition {{ $active ? 'bg-primary text-white' : 'text-ink-700 hover:bg-secondary-50 hover:text-primary' }}">
                     <span>{{ $item['icon'] }}</span> {{ $item['label'] }}
                 </a>
             @endforeach
         </nav>
-        <a href="{{ route('landing') }}" target="_blank" class="text-xs text-slate-500 hover:text-white px-3 py-2">↗ Lihat situs</a>
+        <a href="{{ route('landing') }}" target="_blank" class="text-xs text-ink-500 hover:text-primary px-3 py-2">↗ View site</a>
     </aside>
 
     <div class="flex-1 flex flex-col min-w-0">
-        <header class="flex items-center justify-between border-b border-white/5 px-6 h-16">
-            <h1 class="text-lg font-semibold text-white">{{ $title }}</h1>
+        <header class="flex items-center justify-between border-b border-primary/10 bg-background/80 px-6 h-16 backdrop-blur">
+            <h1 class="text-lg font-semibold text-primary">{{ $title }}</h1>
             <div class="flex items-center gap-4 text-sm">
-                <span class="text-slate-400 hidden sm:inline">{{ auth()->user()?->name }}</span>
-                <form method="POST" action="{{ route('admin.logout') }}">
+                <a href="{{ route('profile.edit') }}" class="text-ink-600 hover:text-primary hidden sm:inline">{{ auth()->user()?->name }}</a>
+                <form method="POST" action="{{ route('logout') }}">
                     @csrf
-                    <button class="rounded-full border border-white/15 px-4 py-1.5 hover:bg-white/5 transition">Logout</button>
+                    <button class="rounded-full border border-primary/15 px-4 py-1.5 text-primary hover:bg-primary hover:text-white transition">Logout</button>
                 </form>
             </div>
         </header>
 
         <main class="p-6 flex-1">
             @if(session('status'))
-                <div class="mb-6 rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-300">
+                <div class="mb-6 rounded-lg border border-secondary/30 bg-secondary-50 px-4 py-3 text-sm text-secondary-800">
                     {{ session('status') }}
                 </div>
             @endif
