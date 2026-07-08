@@ -1,6 +1,6 @@
 <div class="space-y-5 rounded-2xl border border-primary/10 bg-surface-0 p-6 shadow-sm">
     <x-admin.input name="title" label="Title" :value="$service->title" required />
-    <x-admin.input name="icon" label="Icon (emoji)" :value="$service->icon" help="Example: 🚀 🤖 🛠️" />
+    <x-admin.input name="icon" label="Icon (Font Awesome class)" :value="$service->icon" help="Example: fa-solid fa-rocket · fa-solid fa-robot · fa-solid fa-screwdriver-wrench (see fontawesome.com/icons)" />
     <x-admin.input name="slug" label="Slug" :value="$service->slug" help="Leave empty to generate it automatically from the title." />
     <x-admin.input name="description" label="Description" type="textarea" :value="$service->description" required />
 

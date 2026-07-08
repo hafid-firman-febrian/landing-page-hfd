@@ -1,16 +1,16 @@
 <x-layouts.admin title="Dashboard">
     @php
         $cards = [
-            ['label' => 'Services', 'count' => $serviceCount, 'route' => 'admin.services.index', 'icon' => '🧩'],
-            ['label' => 'Portfolio', 'count' => $projectCount, 'route' => 'admin.projects.index', 'icon' => '📁'],
-            ['label' => 'Testimonials', 'count' => $testimonialCount, 'route' => 'admin.testimonials.index', 'icon' => '💬'],
+            ['label' => 'Services', 'count' => $serviceCount, 'route' => 'admin.services.index', 'icon' => 'fa-solid fa-puzzle-piece'],
+            ['label' => 'Portfolio', 'count' => $projectCount, 'route' => 'admin.projects.index', 'icon' => 'fa-solid fa-folder'],
+            ['label' => 'Testimonials', 'count' => $testimonialCount, 'route' => 'admin.testimonials.index', 'icon' => 'fa-solid fa-comment-dots'],
         ];
     @endphp
 
     <div class="grid sm:grid-cols-3 gap-6">
         @foreach($cards as $card)
             <a href="{{ route($card['route']) }}" class="rounded-2xl border border-primary/10 bg-surface-0 p-6 shadow-sm hover:border-secondary/60 hover:shadow-md transition">
-                <div class="text-3xl mb-3">{{ $card['icon'] }}</div>
+                <div class="text-3xl mb-3 text-secondary"><i class="{{ $card['icon'] }}"></i></div>
                 <div class="text-3xl font-bold text-primary">{{ $card['count'] }}</div>
                 <div class="text-sm text-ink-600 mt-1">{{ $card['label'] }}</div>
             </a>

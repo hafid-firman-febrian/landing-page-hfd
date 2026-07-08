@@ -7,16 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ $title }} · Admin</title>
     @fonts
+    <script src="https://kit.fontawesome.com/5b0b01a2f2.js" crossorigin="anonymous"></script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="bg-background text-text antialiased font-sans min-h-screen flex">
     @php
         $nav = [
-            ['route' => 'admin.dashboard', 'label' => 'Dashboard', 'icon' => '🏠'],
-            ['route' => 'admin.services.index', 'label' => 'Services', 'icon' => '🧩'],
-            ['route' => 'admin.projects.index', 'label' => 'Portfolio', 'icon' => '📁'],
-            ['route' => 'admin.testimonials.index', 'label' => 'Testimonials', 'icon' => '💬'],
-            ['route' => 'admin.settings.edit', 'label' => 'Hero & CTA', 'icon' => '⚙️'],
+            ['route' => 'admin.dashboard', 'label' => 'Dashboard', 'icon' => 'fa-solid fa-house'],
+            ['route' => 'admin.services.index', 'label' => 'Services', 'icon' => 'fa-solid fa-puzzle-piece'],
+            ['route' => 'admin.projects.index', 'label' => 'Portfolio', 'icon' => 'fa-solid fa-folder'],
+            ['route' => 'admin.testimonials.index', 'label' => 'Testimonials', 'icon' => 'fa-solid fa-comment-dots'],
+            ['route' => 'admin.settings.edit', 'label' => 'Hero & CTA', 'icon' => 'fa-solid fa-gear'],
         ];
     @endphp
 
@@ -27,11 +28,11 @@
                 @php $active = request()->routeIs(str_replace('.index', '.*', $item['route'])) || request()->routeIs($item['route']); @endphp
                 <a href="{{ route($item['route']) }}"
                    class="flex items-center gap-3 rounded-lg px-3 py-2 transition {{ $active ? 'bg-primary text-white' : 'text-ink-700 hover:bg-secondary-50 hover:text-primary' }}">
-                    <span>{{ $item['icon'] }}</span> {{ $item['label'] }}
+                    <span class="w-5 text-center"><i class="{{ $item['icon'] }}"></i></span> {{ $item['label'] }}
                 </a>
             @endforeach
         </nav>
-        <a href="{{ route('landing') }}" target="_blank" class="text-xs text-ink-500 hover:text-primary px-3 py-2">↗ View site</a>
+        <a href="{{ route('landing') }}" target="_blank" class="text-xs text-ink-500 hover:text-primary px-3 py-2"><i class="fa-solid fa-arrow-up-right-from-square"></i> View site</a>
     </aside>
 
     <div class="flex-1 flex flex-col min-w-0">

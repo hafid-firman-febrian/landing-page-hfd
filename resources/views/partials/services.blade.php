@@ -9,7 +9,9 @@
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             @foreach($services as $service)
                 <article class="rounded-2xl border border-primary/10 bg-surface-0 p-6 shadow-sm hover:border-secondary/60 hover:shadow-md transition">
-                    <div class="text-3xl mb-4">{{ $service->icon }}</div>
+                    <div class="text-3xl mb-4 text-secondary">
+                        @if($service->icon)<i class="{{ $service->icon }}"></i>@endif
+                    </div>
                     <h3 class="text-lg font-semibold text-primary mb-2">{{ $service->title }}</h3>
                     <p class="text-sm text-ink-600 leading-relaxed">{{ $service->description }}</p>
                 </article>

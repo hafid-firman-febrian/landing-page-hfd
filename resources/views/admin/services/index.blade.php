@@ -19,7 +19,7 @@
                 @forelse($services as $service)
                     <tr class="hover:bg-secondary-50">
                         <td class="px-4 py-3 text-ink-500">{{ $service->sort_order }}</td>
-                        <td class="px-4 py-3 text-xl">{{ $service->icon }}</td>
+                        <td class="px-4 py-3 text-xl text-secondary">@if($service->icon)<i class="{{ $service->icon }}"></i>@endif</td>
                         <td class="px-4 py-3 text-primary">{{ $service->title }}</td>
                         <td class="px-4 py-3">
                             <x-admin.status-badge :active="$service->is_active" />

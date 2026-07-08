@@ -8,7 +8,7 @@
             <label for="rating" class="block text-sm mb-1.5">Rating <span class="text-accent">*</span></label>
             <select id="rating" name="rating" class="w-full rounded-lg border border-primary/15 bg-surface-0 px-3 py-2 text-primary focus:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary/20">
                 @for($i = 5; $i >= 1; $i--)
-                    <option value="{{ $i }}" @selected(old('rating', $testimonial->rating ?? 5) == $i)>{{ $i }} ★</option>
+                    <option value="{{ $i }}" @selected(old('rating', $testimonial->rating ?? 5) == $i)>{{ $i }} / 5</option>
                 @endfor
             </select>
             @error('rating')<p class="mt-1 text-xs text-rose-400">{{ $message }}</p>@enderror

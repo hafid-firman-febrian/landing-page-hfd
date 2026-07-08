@@ -9,7 +9,9 @@
             @foreach($testimonials as $testimonial)
                 <figure class="rounded-2xl border border-primary/10 bg-surface-0 p-6 flex flex-col shadow-sm">
                     <div class="text-accent mb-4" aria-label="{{ $testimonial->rating }} out of 5 stars">
-                        {{ str_repeat('★', $testimonial->rating) }}{{ str_repeat('☆', max(0, 5 - $testimonial->rating)) }}
+                        @for($s = 1; $s <= 5; $s++)
+                            <i class="fa-star {{ $s <= $testimonial->rating ? 'fa-solid' : 'fa-regular' }}"></i>
+                        @endfor
                     </div>
                     <blockquote class="text-ink-700 mb-6 leading-relaxed flex-1">"{{ $testimonial->quote }}"</blockquote>
                     <figcaption class="text-sm">

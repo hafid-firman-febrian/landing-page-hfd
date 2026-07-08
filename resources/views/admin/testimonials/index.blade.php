@@ -24,7 +24,9 @@
                             {{ $testimonial->name }}
                             @if($testimonial->role)<div class="text-xs text-ink-500">{{ $testimonial->role }}</div>@endif
                         </td>
-                        <td class="px-4 py-3 text-accent">{{ str_repeat('★', $testimonial->rating) }}</td>
+                        <td class="px-4 py-3 text-accent">
+                            @for($s = 1; $s <= 5; $s++)<i class="fa-star {{ $s <= $testimonial->rating ? 'fa-solid' : 'fa-regular' }}"></i>@endfor
+                        </td>
                         <td class="px-4 py-3 text-ink-600 max-w-xs truncate">{{ $testimonial->quote }}</td>
                         <td class="px-4 py-3"><x-admin.status-badge :active="$testimonial->is_active" /></td>
                         <td class="px-4 py-3 text-right whitespace-nowrap">

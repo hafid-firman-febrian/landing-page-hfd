@@ -17,7 +17,7 @@
 
             <div class="flex items-center gap-3 pt-2">
                 <button type="submit" class="rounded-full bg-accent px-5 py-2 text-sm font-semibold text-white hover:bg-accent-600 transition">Save</button>
-                <a href="{{ route('landing') }}" target="_blank" class="text-sm text-ink-600 hover:text-primary">View landing ↗</a>
+                <a href="{{ route('landing') }}" target="_blank" class="text-sm text-ink-600 hover:text-primary">View landing <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
             </div>
         </div>
     </form>
