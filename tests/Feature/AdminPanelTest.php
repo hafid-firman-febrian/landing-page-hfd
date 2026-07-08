@@ -21,21 +21,21 @@ class AdminPanelTest extends TestCase
 
     public function test_login_page_renders_for_guests(): void
     {
-        $this->get('/admin/login')
+        $this->get('/login')
             ->assertStatus(200)
-            ->assertSee('Masuk');
+            ->assertSee('Log in');
     }
 
     public function test_admin_dashboard_requires_authentication(): void
     {
-        $this->get('/admin')->assertRedirect('/admin/login');
+        $this->get('/admin')->assertRedirect('/login');
     }
 
     public function test_admin_can_authenticate_and_view_dashboard(): void
     {
         $user = $this->admin();
 
-        $this->post('/admin/login', [
+        $this->post('/login', [
             'email' => $user->email,
             'password' => 'password',
         ])->assertRedirect('/admin');
@@ -60,18 +60,18 @@ class AdminPanelTest extends TestCase
         $this->actingAs($this->admin());
 
         $this->post('/admin/services', [
-            'title' => 'Konsultasi Produk',
-            'description' => 'Sesi konsultasi strategi produk.',
+            'title' => 'Product Consultation',
+            'description' => 'A product strategy consultation session.',
             'icon' => '💡',
             'is_active' => '1',
         ])->assertRedirect('/admin/services');
 
         $this->assertDatabaseHas('services', [
-            'title' => 'Konsultasi Produk',
-            'slug' => 'konsultasi-produk',
+            'title' => 'Product Consultation',
+            'slug' => 'product-consultation',
         ]);
 
-        $this->get('/')->assertStatus(200)->assertSee('Konsultasi Produk');
+        $this->get('/')->assertStatus(200)->assertSee('Product Consultation');
     }
 
     public function test_admin_can_upload_a_project_thumbnail(): void
@@ -80,13 +80,13 @@ class AdminPanelTest extends TestCase
         $this->actingAs($this->admin());
 
         $this->post('/admin/projects', [
-            'title' => 'Proyek Uji',
-            'summary' => 'Ringkasan proyek uji.',
+            'title' => 'Test Project',
+            'summary' => 'Test project summary.',
             'thumbnail' => UploadedFile::fake()->image('thumb.jpg'),
             'is_active' => '1',
         ])->assertRedirect('/admin/projects');
 
-        $project = \App\Models\Project::firstWhere('title', 'Proyek Uji');
+        $project = \App\Models\Project::firstWhere('title', 'Test Project');
         $this->assertNotNull($project->thumbnail);
         Storage::disk('public')->assertExists(str_replace('storage/', '', $project->thumbnail));
     }
@@ -96,11 +96,11 @@ class AdminPanelTest extends TestCase
         $this->actingAs($this->admin());
 
         $this->put('/admin/settings', [
-            'hero_title' => 'Judul Baru Hero',
-            'cta_title' => 'Ajakan Baru',
+            'hero_title' => 'New Hero Title',
+            'cta_title' => 'New Call to Action',
         ])->assertRedirect('/admin/settings');
 
-        $this->assertSame('Judul Baru Hero', Setting::where('key', 'hero_title')->value('value'));
-        $this->get('/')->assertSee('Judul Baru Hero');
+        $this->assertSame('New Hero Title', Setting::where('key', 'hero_title')->value('value'));
+        $this->get('/')->assertSee('New Hero Title');
     }
 }
