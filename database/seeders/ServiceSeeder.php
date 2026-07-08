@@ -13,26 +13,26 @@ class ServiceSeeder extends Seeder
             [
                 'title' => 'Build my MVP',
                 'slug' => 'build-my-mvp',
-                'icon' => '🚀',
-                'description' => 'From idea to launched product in 4-8 weeks. Features are scoped upfront, with clickable demos every few days.',
+                'icon' => 'fa-solid fa-rocket',
+                'description' => 'From idea to a launched iOS and Android app in 4-8 weeks. Features are scoped upfront, with installable TestFlight or APK builds delivered every few days so you can test the progress directly on your device.',
             ],
             [
                 'title' => 'Add AI to my product',
-                'slug' => 'add-ai',
-                'icon' => '🤖',
-                'description' => 'AI chat, smart search, document Q&A, and automation. GPT and Claude integrated into your Laravel or Next.js stack.',
+                'slug' => 'add-ai-to-my-app',
+                'icon' => 'fa-solid fa-robot',
+                'description' => 'Seamlessly integrate LLMs (like GPT/Claude) into Flutter or React Native for native-feeling AI chat, smart search, and automated workflows, building intelligent, scalable mobile solutions.',
             ],
             [
                 'title' => 'Rescue my codebase',
                 'slug' => 'rescue-codebase',
-                'icon' => '🛠️',
-                'description' => 'Inherited a messy codebase? I audit it, fix the risky parts, and help you ship features safely again.',
+                'icon' => 'fa-solid fa-screwdriver-wrench',
+                'description' => 'Inherited a messy mobile project? I audit the architecture, untangle complicated state management, fix UI jank, and help you ship App Store and Play Store updates safely again.',
             ],
             [
                 'title' => 'Technical partner',
                 'slug' => 'technical-partner',
-                'icon' => '🤝',
-                'description' => 'Ongoing engineering, AI roadmap planning, and a technical thought partner you can discuss product decisions with. Reserved monthly hours, no surprises.',
+                'icon' => 'fa-solid fa-handshake',
+                'description' => 'Ongoing app engineering, AI feature roadmap planning, and a technical thought partner to help navigate store review guidelines and product decisions. Reserved monthly hours, no surprises.',
             ],
         ];
 

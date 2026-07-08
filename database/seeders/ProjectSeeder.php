@@ -11,11 +11,11 @@ class ProjectSeeder extends Seeder
     {
         $items = [
             [
-                'title' => 'Nusantara SaaS Dashboard',
-                'slug' => 'nusantara-saas-dashboard',
-                'category' => 'SaaS Platform',
-                'summary' => 'A multi-tenant SaaS platform for team management: billing, role-based access, and real-time analytics. Built with Laravel and Livewire, ready for thousands of users.',
-                'thumbnail' => null,
+                'title' => 'Pixel Pocket',
+                'slug' => 'pixel-pocket-2',
+                'category' => 'Finance',
+                'summary' => 'Retro-style personal finance app built with Flutter — track income & expenses, view summaries, and analyze spending by category.',
+                'thumbnail' => 'storage/projects/vA4oUWgL2ZmuHoKSYZVNah6ABJPgpNkASpklg2fj.png',
                 'is_flagship' => true,
             ],
             [
