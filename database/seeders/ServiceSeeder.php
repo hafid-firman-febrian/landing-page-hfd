@@ -14,25 +14,25 @@ class ServiceSeeder extends Seeder
                 'title' => 'Build my MVP',
                 'slug' => 'build-my-mvp',
                 'icon' => '🚀',
-                'description' => 'Dari ide ke produk yang diluncurkan dalam 4–8 minggu. Rincian fitur di awal, demo yang bisa diklik tiap beberapa hari.',
+                'description' => 'From idea to launched product in 4-8 weeks. Features are scoped upfront, with clickable demos every few days.',
             ],
             [
                 'title' => 'Add AI to my product',
                 'slug' => 'add-ai',
                 'icon' => '🤖',
-                'description' => 'AI chat, smart search, Q&A dokumen, otomasi. GPT & Claude diintegrasikan ke stack Laravel / Next.js Anda.',
+                'description' => 'AI chat, smart search, document Q&A, and automation. GPT and Claude integrated into your Laravel or Next.js stack.',
             ],
             [
                 'title' => 'Rescue my codebase',
                 'slug' => 'rescue-codebase',
                 'icon' => '🛠️',
-                'description' => 'Mewarisi codebase berantakan? Saya audit, perbaiki bagian berbahaya, dan buat Anda kembali bisa rilis fitur dengan aman.',
+                'description' => 'Inherited a messy codebase? I audit it, fix the risky parts, and help you ship features safely again.',
             ],
             [
                 'title' => 'Technical partner',
                 'slug' => 'technical-partner',
                 'icon' => '🤝',
-                'description' => 'Engineering berkelanjutan, roadmap AI, dan partner berpikir yang bisa Anda ajak diskusi. Jam bulanan tercadang, tanpa kejutan.',
+                'description' => 'Ongoing engineering, AI roadmap planning, and a technical thought partner you can discuss product decisions with. Reserved monthly hours, no surprises.',
             ],
         ];
 
