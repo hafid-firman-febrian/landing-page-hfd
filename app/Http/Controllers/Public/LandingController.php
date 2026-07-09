@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Public;
 
+use App\Http\Controllers\Controller;
 use App\Models\Project;
 use App\Models\Service;
 use App\Models\Setting;
@@ -11,7 +12,7 @@ class LandingController extends Controller
 {
     public function index()
     {
-        return view('landing', [
+        return view('public.landing', [
             'services' => Service::active()->ordered()->get(),
             'projects' => Project::active()->ordered()->get(),
             'testimonials' => Testimonial::active()->ordered()->get(),

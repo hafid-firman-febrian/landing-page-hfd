@@ -13,11 +13,11 @@
 </head>
 
 <body class="bg-background text-text antialiased font-sans">
-    <x-navbar />
+    <x-public.navbar />
     <main>
         {{ $slot }}
     </main>
-    <x-footer />
+    <x-public.footer />
 </body>
 
 </html>

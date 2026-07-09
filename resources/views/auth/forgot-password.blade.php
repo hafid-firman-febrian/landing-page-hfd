@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-layouts.guest>
     <div class="mb-4 text-sm text-ink-600">
         {{ __('Forgot your password? No problem. Enter your email address and we will send you a link to reset it.') }}
     </div>
@@ -22,4 +22,4 @@
             </x-primary-button>
         </div>
     </form>
-</x-guest-layout>
+</x-layouts.guest>
