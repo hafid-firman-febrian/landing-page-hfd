@@ -22,22 +22,27 @@
     @endphp
 
     <aside class="hidden md:flex w-64 shrink-0 flex-col border-r border-primary/10 bg-surface-0 p-4">
-        <a href="{{ route('admin.dashboard') }}" class="font-bold text-primary text-lg px-2 py-3">{{ config('app.name') }}</a>
-        <nav class="mt-4 space-y-1 text-sm flex-1">
-            @foreach($nav as $item)
-                @php $active = request()->routeIs(str_replace('.index', '.*', $item['route'])) || request()->routeIs($item['route']); @endphp
-                <a href="{{ route($item['route']) }}"
-                   class="flex items-center gap-3 rounded-lg px-3 py-2 transition {{ $active ? 'bg-primary text-white' : 'text-ink-700 hover:bg-secondary-50 hover:text-primary' }}">
-                    <span class="w-5 text-center"><i class="{{ $item['icon'] }}"></i></span> {{ $item['label'] }}
-                </a>
-            @endforeach
-        </nav>
-        <a href="{{ route('landing') }}" target="_blank" class="text-xs text-ink-500 hover:text-primary px-3 py-2"><i class="fa-solid fa-arrow-up-right-from-square"></i> View site</a>
+        <x-admin.sidebar-nav :nav="$nav" />
     </aside>
 
+    <div data-menu class="hidden fixed inset-0 z-50 md:hidden">
+        <div data-menu-close class="absolute inset-0 bg-primary/40"></div>
+        <aside class="relative z-10 flex h-full w-64 flex-col border-r border-primary/10 bg-surface-0 p-4">
+            <button data-menu-close type="button" class="self-end text-ink-500 hover:text-primary mb-2" aria-label="Tutup menu">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            <x-admin.sidebar-nav :nav="$nav" />
+        </aside>
+    </div>
+
     <div class="flex-1 flex flex-col min-w-0">
-        <header class="flex items-center justify-between border-b border-primary/10 bg-background/80 px-6 h-16 backdrop-blur">
-            <h1 class="text-lg font-semibold text-primary">{{ $title }}</h1>
+        <header class="flex items-center justify-between border-b border-primary/10 bg-background/80 px-4 md:px-6 h-16 backdrop-blur">
+            <div class="flex items-center gap-3">
+                <button data-menu-toggle type="button" class="text-primary text-xl leading-none md:hidden" aria-label="Buka menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <h1 class="text-lg font-semibold text-primary">{{ $title }}</h1>
+            </div>
             <div class="flex items-center gap-4 text-sm">
                 <a href="{{ route('profile.edit') }}" class="text-ink-600 hover:text-primary hidden sm:inline">{{ auth()->user()?->name }}</a>
                 <form method="POST" action="{{ route('logout') }}">

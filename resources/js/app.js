@@ -9,9 +9,9 @@ const menu = document.querySelector("[data-menu]");
 
 menuToggle?.addEventListener("click", () => menu?.classList.toggle("hidden"));
 
-// Tutup menu setelah klik link (mobile)
-menu?.querySelectorAll("a").forEach((link) =>
-    link.addEventListener("click", () => menu.classList.add("hidden")),
+// Tutup menu setelah klik link atau elemen penutup (mobile)
+menu?.querySelectorAll("a, [data-menu-close]").forEach((el) =>
+    el.addEventListener("click", () => menu.classList.add("hidden")),
 );
 
 // Home: selalu scroll mentok ke paling atas halaman
