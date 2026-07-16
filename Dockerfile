@@ -3,7 +3,7 @@
 # =============================================================
 # Stage 1 — Build frontend assets (Vite / Tailwind v4)
 # =============================================================
-FROM node:22-alpine AS frontend
+FROM node:22-bookworm-slim AS frontend
 WORKDIR /app
 
 COPY package.json package-lock.json ./
