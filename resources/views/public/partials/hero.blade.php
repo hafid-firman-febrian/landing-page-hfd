@@ -40,10 +40,14 @@
                     class="w-72 h-72 md:w-96 md:h-96 rounded-3xl object-cover shadow-2xl" loading="eager">
             </div>
         @else
-            <div class="justify-self-center hidden md:block">
+            <div data-aos="flip-up" class="justify-self-center">
                 <div
-                    class="w-80 h-80 rounded-3xl bg-gradient-to-br from-secondary to-accent shadow-2xl flex items-center justify-center text-7xl text-white">
-                    <i class="fa-solid fa-rocket"></i>
+                    class="w-72 h-72 md:w-96 md:h-96 rounded-3xl bg-ink-100 border border-ink-200 shadow-2xl flex items-center justify-center text-ink-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-24 h-24 md:w-28 md:h-28">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909M18 8.25h.008v.008H18V8.25Zm.75 8.25a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H5.25A1.5 1.5 0 0 0 3.75 6v9a1.5 1.5 0 0 0 1.5 1.5h13.5Z" />
+                    </svg>
                 </div>
             </div>
         @endif
