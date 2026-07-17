@@ -70,7 +70,10 @@ COPY docker/entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
 
 # --- Permissions --------------------------------------------
-RUN chown -R www-data:www-data storage bootstrap/cache \
+# nginx.conf runs workers as www-data, but the nginx package's own
+# runtime dirs (temp buffers for request bodies, etc.) are owned by
+# root by default — reassign so uploads that spill to disk can write.
+RUN chown -R www-data:www-data storage bootstrap/cache /var/lib/nginx \
     && chmod -R ug+rwX storage bootstrap/cache
 
 EXPOSE 80
