@@ -88,4 +88,38 @@ class ProjectCategoriesTest extends TestCase
             ->assertStatus(200)
             ->assertSee('Fintech, Mobile App');
     }
+
+    public function test_landing_page_renders_chips_for_the_flagship_project(): void
+    {
+        Project::create([
+            'title' => 'Flagship Project',
+            'slug' => 'flagship-project',
+            'categories' => ['Fintech', 'Mobile App'],
+            'summary' => 'Shown as the flagship.',
+            'is_flagship' => true,
+            'is_active' => true,
+        ]);
+
+        $this->get('/')
+            ->assertStatus(200)
+            ->assertSee('Fintech')
+            ->assertSee('Mobile App');
+    }
+
+    public function test_landing_page_renders_chips_for_a_grid_card_project(): void
+    {
+        Project::create([
+            'title' => 'Grid Card Project',
+            'slug' => 'grid-card-project',
+            'categories' => ['AI Product', 'SaaS Platform'],
+            'summary' => 'Shown as a grid card.',
+            'is_flagship' => false,
+            'is_active' => true,
+        ]);
+
+        $this->get('/')
+            ->assertStatus(200)
+            ->assertSee('AI Product')
+            ->assertSee('SaaS Platform');
+    }
 }

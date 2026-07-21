@@ -20,9 +20,13 @@
                     <!-- <span class="text-xs text-accent mb-3 font-mono">// Featured Project</span> -->
                     <h3 class="text-2xl md:text-3xl font-bold text-primary mb-4">{{ $flagship->title }}</h3>
                     <p class="text-ink-600 mb-6 leading-relaxed">{{ $flagship->summary }}</p>
-                    @if ($flagship->category)
-                        <span
-                            class="inline-block w-fit rounded-full border border-secondary/30 bg-secondary-50 px-3 py-1 text-xs text-secondary-800">{{ $flagship->category }}</span>
+                    @if ($flagship->categories)
+                        <div class="flex flex-wrap gap-2">
+                            @foreach ($flagship->categories as $category)
+                                <span
+                                    class="inline-block w-fit rounded-full border border-secondary/30 bg-secondary-50 px-3 py-1 text-xs text-secondary-800">{{ $category }}</span>
+                            @endforeach
+                        </div>
                     @endif
                 </div>
                 <div class="order-1 lg:order-2 min-h-64">
@@ -53,7 +57,14 @@
                             </div>
                         @endif
                         <div class="p-6">
-                            <div class="text-xs text-accent mb-2">{{ $project->category }}</div>
+                            @if ($project->categories)
+                                <div class="flex flex-wrap gap-1.5 mb-2">
+                                    @foreach ($project->categories as $category)
+                                        <span
+                                            class="inline-block rounded-full border border-secondary/30 bg-secondary-50 px-2 py-0.5 text-[11px] text-secondary-800">{{ $category }}</span>
+                                    @endforeach
+                                </div>
+                            @endif
                             <h3 class="text-lg font-semibold text-primary mb-2">{{ $project->title }}</h3>
                             <p class="text-sm text-ink-600 leading-relaxed">{{ Str::limit($project->summary, 110) }}
                             </p>
