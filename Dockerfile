@@ -23,6 +23,11 @@ FROM php:8.4-fpm-alpine AS app
 COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/local/bin/
 COPY --from=composer:2 /usr/bin/composer /usr/local/bin/composer
 
+# gd only needs to handle the JPG/PNG thumbnails this app uploads — AVIF
+# support pulls in a from-source aom/libavif compile that can take 10+
+# minutes and was timing out deploys, so it's turned off here.
+ENV IPE_GD_WITHOUTAVIF=1
+
 RUN apk add --no-cache nginx supervisor \
     && install-php-extensions \
         pdo_mysql \
