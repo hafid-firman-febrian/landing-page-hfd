@@ -6,32 +6,39 @@
                 enjoy working with me</h2>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            @foreach ($testimonials as $testimonial)
-                <div data-aos="fade-up" data-aos-delay="{{ $loop->index * 200 }}" class="h-full">
-                    <figure
-                        class="h-full rounded-2xl border border-primary/10 bg-surface-0 p-6 flex flex-col shadow-sm transition-all  duration-300 ease-in-out hover:-translate-y-2 hover:border-accent/60 hover:shadow-md ">
-                        <div class="text-accent mb-4" aria-label="{{ $testimonial->rating }} out of 5 stars">
-                            @for ($s = 1; $s <= 5; $s++)
-                                <i class="fa-star {{ $s <= $testimonial->rating ? 'fa-solid' : 'fa-regular' }}"></i>
-                            @endfor
-                        </div>
-                        <blockquote class="text-ink-700 mb-6 leading-relaxed flex-1">"{{ $testimonial->quote }}"
-                        </blockquote>
-                        <figcaption class="text-sm">
-                            @if ($testimonial->source_url)
-                                <a href="{{ $testimonial->source_url }}" target="_blank" rel="noopener noreferrer"
-                                    class="text-primary font-semibold hover:text-accent">{{ $testimonial->name }}</a>
-                            @else
-                                <span class="text-primary font-semibold">{{ $testimonial->name }}</span>
-                            @endif
-                            @if ($testimonial->role)
-                                <span class="text-ink-500"> · {{ $testimonial->role }}</span>
-                            @endif
-                        </figcaption>
-                    </figure>
-                </div>
-            @endforeach
+        <div class="testimonials-swiper [--swiper-theme-color:var(--color-accent)]">
+            <div class="swiper-wrapper">
+                @foreach ($testimonials as $testimonial)
+                    <div class="swiper-slide h-full">
+                        <figure
+                            class="h-full rounded-2xl border border-primary/10 bg-surface-0 p-6 flex flex-col shadow-sm transition-all  duration-300 ease-in-out hover:-translate-y-2 hover:border-accent/60 hover:shadow-md ">
+                            <div class="text-accent mb-4" aria-label="{{ $testimonial->rating }} out of 5 stars">
+                                @for ($s = 1; $s <= 5; $s++)
+                                    <i class="fa-star {{ $s <= $testimonial->rating ? 'fa-solid' : 'fa-regular' }}"></i>
+                                @endfor
+                            </div>
+                            <blockquote class="text-ink-700 mb-6 leading-relaxed flex-1">"{{ $testimonial->quote }}"
+                            </blockquote>
+                            <figcaption class="text-sm">
+                                @if ($testimonial->source_url)
+                                    <a href="{{ $testimonial->source_url }}" target="_blank" rel="noopener noreferrer"
+                                        class="text-primary font-semibold hover:text-accent">{{ $testimonial->name }}</a>
+                                @else
+                                    <span class="text-primary font-semibold">{{ $testimonial->name }}</span>
+                                @endif
+                                @if ($testimonial->role)
+                                    <span class="text-ink-500"> · {{ $testimonial->role }}</span>
+                                @endif
+                            </figcaption>
+                        </figure>
+                    </div>
+                @endforeach
+            </div>
+
+            <div class="swiper-pagination mt-8"></div>
+
+            <button type="button" class="swiper-button-prev !text-accent" aria-label="Previous testimonial"></button>
+            <button type="button" class="swiper-button-next !text-accent" aria-label="Next testimonial"></button>
         </div>
     </div>
 </section>
