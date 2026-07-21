@@ -10,6 +10,7 @@ class Project extends Model
     protected $guarded = [];
 
     protected $casts = [
+        'categories' => 'array',
         'is_flagship' => 'boolean',
         'is_active' => 'boolean',
     ];

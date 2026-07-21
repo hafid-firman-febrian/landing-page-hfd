@@ -13,7 +13,7 @@ class ProjectSeeder extends Seeder
             [
                 'title' => 'Pixel Pocket',
                 'slug' => 'pixel-pocket-2',
-                'category' => 'Finance',
+                'categories' => ['Finance', 'Mobile App'],
                 'summary' => 'Retro-style personal finance app built with Flutter — track income & expenses, view summaries, and analyze spending by category.',
                 'thumbnail' => 'storage/projects/vA4oUWgL2ZmuHoKSYZVNah6ABJPgpNkASpklg2fj.png',
                 'is_flagship' => true,
@@ -21,7 +21,7 @@ class ProjectSeeder extends Seeder
             [
                 'title' => 'DocuChat AI Assistant',
                 'slug' => 'docuchat-ai-assistant',
-                'category' => 'AI Product',
+                'categories' => ['AI Product'],
                 'summary' => 'A RAG-powered document Q&A assistant. Users upload PDFs and ask questions in natural language. GPT and Claude integration with cost controls.',
                 'thumbnail' => null,
                 'is_flagship' => false,
@@ -29,7 +29,7 @@ class ProjectSeeder extends Seeder
             [
                 'title' => 'Kirana E-Commerce',
                 'slug' => 'kirana-ecommerce',
-                'category' => 'E-Commerce',
+                'categories' => ['E-Commerce'],
                 'summary' => 'An online store with Xendit payments, inventory management, and an admin panel. From zero to first transaction in 6 weeks.',
                 'thumbnail' => null,
                 'is_flagship' => false,
@@ -37,7 +37,7 @@ class ProjectSeeder extends Seeder
             [
                 'title' => 'FieldOps Mobile',
                 'slug' => 'fieldops-mobile',
-                'category' => 'Web App',
+                'categories' => ['Web App'],
                 'summary' => 'A field app for operations teams: scheduling, checklists, and photo reports. An offline-first PWA.',
                 'thumbnail' => null,
                 'is_flagship' => false,
@@ -45,7 +45,7 @@ class ProjectSeeder extends Seeder
             [
                 'title' => 'Legacy Rescue: Clinic App',
                 'slug' => 'legacy-rescue-clinic',
-                'category' => 'Codebase Rescue',
+                'categories' => ['Codebase Rescue'],
                 'summary' => 'Audit and stabilization for a clinic app inherited from a previous developer. Critical bug fixes, security improvements, and a safer deployment process.',
                 'thumbnail' => null,
                 'is_flagship' => false,
