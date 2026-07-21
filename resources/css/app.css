@@ -33,6 +33,10 @@ section[id] {
     filter: none;
 }
 
+.testimonials-swiper .swiper-pagination {
+    position: static;
+}
+
 @theme {
     /* Font */
     --font-sans:

@@ -6,7 +6,7 @@
                 enjoy working with me</h2>
         </div>
 
-        <div class="testimonials-swiper [--swiper-theme-color:var(--color-accent)]">
+        <div class="swiper testimonials-swiper [--swiper-theme-color:var(--color-accent)]">
             <div class="swiper-wrapper">
                 @foreach ($testimonials as $testimonial)
                     <div class="swiper-slide h-full">
