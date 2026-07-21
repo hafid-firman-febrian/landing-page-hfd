@@ -6,9 +6,22 @@
                 enjoy working with me</h2>
         </div>
 
+        @php
+            // Swiper's centeredSlides+loop needs at least slidesPerView(3) + loopedSlides(2) = 5
+            // physical slides to reposition on either side without running out mid-cycle (see
+            // resources/js/testimonials-carousel.js breakpoints: slidesPerView tops out at 3).
+            // Below that, pad by repeating from the start so the loop never runs dry.
+            $swiperMinimumSlides = 5;
+            $testimonialSlides = $testimonials;
+            if ($testimonialSlides->count() > 0 && $testimonialSlides->count() < $swiperMinimumSlides) {
+                $testimonialSlides = $testimonialSlides->concat(
+                    $testimonialSlides->take($swiperMinimumSlides - $testimonialSlides->count()),
+                );
+            }
+        @endphp
         <div class="swiper testimonials-swiper [--swiper-theme-color:var(--color-accent)]">
             <div class="swiper-wrapper">
-                @foreach ($testimonials as $testimonial)
+                @foreach ($testimonialSlides as $testimonial)
                     <div class="swiper-slide h-full">
                         <figure
                             class="h-full rounded-2xl border border-primary/10 bg-surface-0 p-6 flex flex-col shadow-sm transition-all  duration-300 ease-in-out hover:-translate-y-2 hover:border-accent/60 hover:shadow-md ">
