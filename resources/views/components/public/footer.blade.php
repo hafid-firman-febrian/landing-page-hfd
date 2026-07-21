@@ -14,24 +14,24 @@
                         </span>
                     </a>
 
-                    <p class="mb-4 mt-4 max-w-sm text-[0.92rem] leading-[1.7] text-ink-500">
+                    <p class="mb-4 mt-4 max-w-sm text-[0.92rem] leading-[1.7] text-ink-200">
                         Mobile developer based in Semarang, Indonesia. I build seamless mobile applications using
                         Flutter, Kotlin, and Swift, alongside modern web experiences.
                     </p>
 
                     <nav class="flex items-center gap-4 text-white">
                         <a href="https://github.com/hafid-firman-febrian" target="_blank" rel="noopener noreferrer"
-                            aria-label="GitHub" class="text-xl text-ink-500 transition hover:text-white">
+                            aria-label="GitHub" class="text-xl text-ink-200 transition hover:text-white">
                             <i class="fa-brands fa-github"></i>
                         </a>
 
                         <a href="https://id.linkedin.com/in/ridzwan-gigih-herdyantha" target="_blank"
                             rel="noopener noreferrer" aria-label="LinkedIn"
-                            class="text-xl text-ink-500 transition hover:text-white">
+                            class="text-xl text-ink-200 transition hover:text-white">
                             <i class="fa-brands fa-linkedin"></i>
                         </a>
                         <a href="https://twitter.com/ridzwangigih" target="_blank" rel="noopener noreferrer"
-                            aria-label="X / Twitter" class="text-xl text-ink-500 transition hover:text-white">
+                            aria-label="X / Twitter" class="text-xl text-ink-200 transition hover:text-white">
                             <i class="fa-brands fa-upwork"></i>
                         </a>
 
@@ -40,9 +40,9 @@
                 </div>
             </div>
             <div class="flex items-center gap-6">
-                <a href="#services" class="hover:text-primary transition">Services</a>
-                <a href="#portfolio" class="hover:text-primary transition">Portfolio</a>
-                <a href="#cta" class="hover:text-primary transition">Contact</a>
+                <a href="#services" class="hover:text-accent-200 transition">Services</a>
+                <a href="#portfolio" class="hover:text-accent-200 transition">Portfolio</a>
+                <a href="#cta" class="hover:text-accent-200 transition">Contact</a>
             </div>
 
 
@@ -53,12 +53,12 @@
 
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="border-t border-background py-4 md:flex md:items-center md:justify-between">
-            <p class="mb-2 text-sm text-slate-400 md:mb-0">
+            <p class="mb-2 text-sm text-slate-300 md:mb-0">
                 &copy; {{ date('Y') }} Hafid Firman Febrian. All rights reserved.
             </p>
 
-            <p class="mb-0 text-sm text-slate-400">
-                <a href="https://hafidfirman.com" class="text-slate-400 transition hover:text-white">
+            <p class="mb-0 text-sm text-slate-300">
+                <a href="https://hafidfirman.com" class="text-slate-300 transition hover:text-white">
                     hafidfirman.com
                 </a>
             </p>

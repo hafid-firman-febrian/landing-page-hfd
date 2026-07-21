@@ -17,7 +17,7 @@
                 class="grid lg:grid-cols-2 rounded-3xl overflow-hidden border border-primary/10 bg-surface-0 mb-8 shadow-sm hover:border-secondary/60 hover:shadow-md hover:-translate-y-2  transition-all  duration-300 ease-in-out">
                 <div data-aos="fade-up" data-aos-delay="300"
                     class="p-8 md:p-12 flex flex-col justify-center order-2 lg:order-1">
-                    <span class="text-xs text-accent mb-3 font-mono">// Featured Project</span>
+                    <!-- <span class="text-xs text-accent mb-3 font-mono">// Featured Project</span> -->
                     <h3 class="text-2xl md:text-3xl font-bold text-primary mb-4">{{ $flagship->title }}</h3>
                     <p class="text-ink-600 mb-6 leading-relaxed">{{ $flagship->summary }}</p>
                     @if ($flagship->category)
