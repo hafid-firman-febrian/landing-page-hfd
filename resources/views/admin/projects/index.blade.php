@@ -33,7 +33,7 @@
                                 <span class="ml-1 rounded-full bg-accent-50 px-2 py-0.5 text-xs text-accent-700">Flagship</span>
                             @endif
                         </td>
-                        <td class="px-4 py-3 text-ink-600">{{ $project->category }}</td>
+                        <td class="px-4 py-3 text-ink-600">{{ implode(', ', $project->categories ?? []) }}</td>
                         <td class="px-4 py-3"><x-admin.status-badge :active="$project->is_active" /></td>
                         <td class="px-4 py-3 text-right whitespace-nowrap">
                             <a href="{{ route('admin.projects.edit', $project) }}" class="text-accent hover:text-accent-700">Edit</a>

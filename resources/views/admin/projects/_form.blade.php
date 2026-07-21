@@ -1,6 +1,6 @@
 <div class="space-y-5 rounded-2xl border border-primary/10 bg-surface-0 p-6 shadow-sm">
     <x-admin.input name="title" label="Title" :value="$project->title" required />
-    <x-admin.input name="category" label="Category" :value="$project->category" help="Example: SaaS Platform, AI Product" />
+    <x-admin.tag-input name="categories" label="Categories" :value="$project->categories ?? []" help="Type a category and press Enter or comma to add it. Example: SaaS Platform, AI Product" />
     <x-admin.input name="slug" label="Slug" :value="$project->slug" help="Leave empty to generate it automatically from the title." />
     <x-admin.input name="summary" label="Summary" type="textarea" :value="$project->summary" required />
 

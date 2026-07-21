@@ -55,4 +55,37 @@ class ProjectCategoriesTest extends TestCase
 
         $this->assertNull($project->categories);
     }
+
+    public function test_edit_form_prefills_existing_categories(): void
+    {
+        $this->actingAs(User::factory()->create());
+
+        $project = Project::create([
+            'title' => 'Prefill Check',
+            'slug' => 'prefill-check',
+            'categories' => ['Fintech', 'Mobile App'],
+            'summary' => 'Checking prefill.',
+        ]);
+
+        $this->get("/admin/projects/{$project->id}/edit")
+            ->assertStatus(200)
+            ->assertSee('Fintech')
+            ->assertSee('Mobile App');
+    }
+
+    public function test_admin_index_lists_categories_joined_with_commas(): void
+    {
+        $this->actingAs(User::factory()->create());
+
+        Project::create([
+            'title' => 'List Check',
+            'slug' => 'list-check',
+            'categories' => ['Fintech', 'Mobile App'],
+            'summary' => 'Checking list display.',
+        ]);
+
+        $this->get('/admin/projects')
+            ->assertStatus(200)
+            ->assertSee('Fintech, Mobile App');
+    }
 }
