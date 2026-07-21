@@ -19,6 +19,20 @@ section[id] {
     scroll-margin-top: 4rem;
 }
 
+/* Testimonial carousel: card aktif full color di tengah, card kiri/kanan pudar & grayscale supaya seimbang */
+.testimonials-swiper .swiper-slide {
+    opacity: 0.45;
+    filter: grayscale(75%);
+    transition:
+        opacity 0.3s ease,
+        filter 0.3s ease;
+}
+
+.testimonials-swiper .swiper-slide-active {
+    opacity: 1;
+    filter: none;
+}
+
 @theme {
     /* Font */
     --font-sans:
