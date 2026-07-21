@@ -67,3 +67,5 @@ AOS.init({
     duration: 900,
     offset: 100,
 });
+
+import "./testimonials-carousel";
