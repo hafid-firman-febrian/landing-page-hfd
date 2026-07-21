@@ -6,14 +6,14 @@
 ])
 
 @php
-    $tags = old($name, $value ?? []);
+    $tags = (array) old($name, $value ?? []);
 @endphp
 
 <div x-data="{
         tags: {{ json_encode(array_values($tags)) }},
         draft: '',
         addFromDraft() {
-            const value = this.draft.trim().replace(/,$/, '').trim();
+            const value = this.draft.trim();
             this.draft = '';
             if (!value) return;
             if (this.tags.some(tag => tag.toLowerCase() === value.toLowerCase())) return;
@@ -32,7 +32,7 @@
         <template x-for="(tag, index) in tags" :key="index">
             <span class="inline-flex items-center gap-1.5 rounded-full border border-secondary/30 bg-secondary-50 px-3 py-1 text-xs text-secondary-800">
                 <span x-text="tag"></span>
-                <button type="button" @click="removeAt(index)" class="text-secondary-800/60 hover:text-secondary-800" aria-label="Remove category">&times;</button>
+                <button type="button" @click="removeAt(index)" class="text-secondary-800/60 hover:text-secondary-800" :aria-label="'Remove ' + tag">&times;</button>
             </span>
         </template>
 
