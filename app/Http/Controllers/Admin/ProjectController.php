@@ -56,7 +56,7 @@ class ProjectController extends Controller
         $data = $request->validate([
             'title' => ['required', 'string', 'max:255'],
             'slug' => ['nullable', 'string', 'max:255'],
-            'category' => ['nullable', 'string', 'max:255'],
+            'categories' => ['nullable', 'array'],
             'summary' => ['required', 'string'],
             'thumbnail' => ['nullable', 'image', 'max:4096'],
             'is_flagship' => ['nullable', 'boolean'],
@@ -65,6 +65,7 @@ class ProjectController extends Controller
         ]);
 
         $data['slug'] = $this->uniqueSlug(($data['slug'] ?? '') ?: $data['title'], $project);
+        $data['categories'] = $this->cleanCategories($data['categories'] ?? []);
         $data['is_flagship'] = $request->boolean('is_flagship');
         $data['is_active'] = $request->boolean('is_active');
         $data['sort_order'] = $data['sort_order'] ?? 0;
@@ -77,6 +78,18 @@ class ProjectController extends Controller
         }
 
         return $data;
+    }
+
+    private function cleanCategories(array $categories): ?array
+    {
+        $cleaned = collect($categories)
+            ->map(fn ($category) => trim($category))
+            ->filter()
+            ->unique()
+            ->values()
+            ->all();
+
+        return $cleaned === [] ? null : $cleaned;
     }
 
     private function uniqueSlug(string $value, ?Project $project): string

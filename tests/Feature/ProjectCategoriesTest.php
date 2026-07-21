@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Models\Project;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -22,5 +23,36 @@ class ProjectCategoriesTest extends TestCase
         $project->refresh();
 
         $this->assertSame(['AI Product', 'SaaS Platform'], $project->categories);
+    }
+
+    public function test_admin_can_create_a_project_with_multiple_categories(): void
+    {
+        $this->actingAs(User::factory()->create());
+
+        $this->post('/admin/projects', [
+            'title' => 'Multi Category Project',
+            'summary' => 'A project with more than one category.',
+            'categories' => ['AI Product', '', ' SaaS Platform ', 'AI Product'],
+            'is_active' => '1',
+        ])->assertRedirect('/admin/projects');
+
+        $project = Project::firstWhere('title', 'Multi Category Project');
+
+        $this->assertSame(['AI Product', 'SaaS Platform'], $project->categories);
+    }
+
+    public function test_project_categories_are_null_when_none_provided(): void
+    {
+        $this->actingAs(User::factory()->create());
+
+        $this->post('/admin/projects', [
+            'title' => 'No Category Project',
+            'summary' => 'A project without categories.',
+            'is_active' => '1',
+        ])->assertRedirect('/admin/projects');
+
+        $project = Project::firstWhere('title', 'No Category Project');
+
+        $this->assertNull($project->categories);
     }
 }
