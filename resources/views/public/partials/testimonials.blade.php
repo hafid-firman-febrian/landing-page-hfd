@@ -24,7 +24,7 @@
                 @foreach ($testimonialSlides as $testimonial)
                     <div class="swiper-slide h-full">
                         <figure
-                            class="h-full rounded-2xl border border-primary/10 bg-surface-0 p-6 flex flex-col shadow-sm transition-all  duration-300 ease-in-out hover:-translate-y-2 hover:border-accent/60 hover:shadow-md ">
+                            class="h-full min-h-80 rounded-2xl border border-primary/10 bg-surface-0 p-6 flex flex-col shadow-sm transition-all  duration-300 ease-in-out hover:-translate-y-2 hover:border-accent/60 hover:shadow-md ">
                             <div class="text-accent mb-4" aria-label="{{ $testimonial->rating }} out of 5 stars">
                                 @for ($s = 1; $s <= 5; $s++)
                                     <i class="fa-star {{ $s <= $testimonial->rating ? 'fa-solid' : 'fa-regular' }}"></i>
