@@ -57,7 +57,7 @@ class ProjectController extends Controller
             'title' => ['required', 'string', 'max:255'],
             'slug' => ['nullable', 'string', 'max:255'],
             'categories' => ['nullable', 'array'],
-            'categories.*' => ['string', 'max:255'],
+            'categories.*' => ['nullable', 'string', 'max:255'],
             'summary' => ['required', 'string'],
             'thumbnail' => ['nullable', 'image', 'max:4096'],
             'is_flagship' => ['nullable', 'boolean'],
@@ -84,8 +84,8 @@ class ProjectController extends Controller
     private function cleanCategories(array $categories): ?array
     {
         $cleaned = collect($categories)
+            ->filter(fn ($category) => is_string($category) && trim($category) !== '')
             ->map(fn ($category) => trim($category))
-            ->filter()
             ->unique()
             ->values()
             ->all();
