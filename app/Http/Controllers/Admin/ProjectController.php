@@ -57,6 +57,7 @@ class ProjectController extends Controller
             'title' => ['required', 'string', 'max:255'],
             'slug' => ['nullable', 'string', 'max:255'],
             'categories' => ['nullable', 'array'],
+            'categories.*' => ['string', 'max:255'],
             'summary' => ['required', 'string'],
             'thumbnail' => ['nullable', 'image', 'max:4096'],
             'is_flagship' => ['nullable', 'boolean'],
