@@ -20,6 +20,11 @@ section[id] {
 }
 
 /* Testimonial carousel: card aktif full color di tengah, card kiri/kanan pudar & grayscale supaya seimbang */
+.testimonials-swiper {
+    /* Ruang di atas supaya hover:-translate-y-2 pada card tidak kepotong overflow:hidden */
+    padding-top: 1rem;
+}
+
 .testimonials-swiper .swiper-slide {
     opacity: 0.45;
     filter: grayscale(75%);
